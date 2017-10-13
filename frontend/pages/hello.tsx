@@ -1,5 +1,5 @@
 import * as React from "react"
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import Todos from '../stores/todos'
 import InputForm from '../components/input_form'
 import TodoItem from '../components/todo_item'
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 // the (stateful) component for the page with type checking
-@inject('todos')
+@inject('todos') @observer
 export default class HelloPage extends React.Component<IProps, {}> {
 
   render() {

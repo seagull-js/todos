@@ -1,5 +1,5 @@
 import * as React from "react"
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import Todo from '../models/todo'
 import Todos from '../stores/todos'
 
@@ -8,7 +8,7 @@ interface IProps {
   todos?: Todos
 }
 
-@inject('todos')
+@inject('todos') @observer
 export default class TodoItem extends React.Component<IProps, {}> {
   render() {
     return (

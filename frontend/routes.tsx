@@ -1,6 +1,8 @@
+import HelloPage from './pages/hello'
+
 export default [{
   path: '/',
-  component: require('./pages/hello')
+  component: HelloPage
 }]
 
 // // library imports

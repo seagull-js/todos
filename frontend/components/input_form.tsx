@@ -1,6 +1,6 @@
 // external library imports
 import * as React from "react"
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import Todos from '../stores/todos'
 
 // external data that gets passed into this component
@@ -14,7 +14,7 @@ export interface IState {
 }
 
 // the (stateful) component for the page with type checking
-@inject('todos')
+@inject('todos') @observer
 export default class InputForm extends React.Component<IProps, IState> {
   constructor(props) {
     super(props)
