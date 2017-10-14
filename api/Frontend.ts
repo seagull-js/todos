@@ -1,11 +1,6 @@
 // library imports
 import { API, Request, Response } from '@seagull-js/seagull'
-import { match, matchPath, StaticRouter } from 'react-router'
-import * as ReactDOMServer from 'react-dom/server';
-import * as React from 'react'
-import * as ReactRouter from 'react-router'
-const renderToString = ReactDOMServer.renderToString
-const createElement = React.createElement
+import { renderToString } from 'react-dom/server';
 
 // configuration imports
 import layout from '../frontend/layout'
