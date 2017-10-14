@@ -1,6 +1,6 @@
 // library imports
 import { API, Request, Response } from '@seagull-js/seagull'
-import { renderToString } from 'react-dom/server';
+import { renderToString as render } from 'react-dom/server';
 
 // configuration imports
 import layout from '../frontend/layout'
@@ -11,6 +11,6 @@ export default class Frontend extends API {
   static method = 'GET'
   static path = '/*'
   async handle(request: Request): Promise<Response> {
-    return this.html(renderToString(layout({ children:routes(true, request) })))
+    return this.html(render(layout({ children: routes(true, request) })))
   }
 }
