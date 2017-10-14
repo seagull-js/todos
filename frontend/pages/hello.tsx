@@ -25,7 +25,7 @@ export default class HelloPage extends React.Component<IProps, {}> {
           </thead>
           <tbody>
             {this.props.todos.list.map((todo, index) =>
-              <TodoItem todo={ todo } />
+              <TodoItem todo={ todo } key={ todo.id } />
             )}
           </tbody>
         </table>
