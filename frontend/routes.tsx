@@ -20,24 +20,34 @@ import HelloPage1 from './pages/hello.2'
 
 // routing structure
 const routes = ( isSSR = false, request?: Request ) => {
-  // urgh
-  let AppRouter: any = Router
-  let routerProps: RouterProps | StaticRouterProps = { history: browserHistory }
+  
+  let RouterConf: { 
+    appRouter: typeof Router,
+    routerProps: RouterProps
+  } | {
+    appRouter: typeof StaticRouter,
+    routerProps: StaticRouterProps
+  } = {
+    appRouter: Router,
+    routerProps: { history: browserHistory }
+  }
   if (isSSR && request) {
-    AppRouter = StaticRouter
-    routerProps = {
-      context: {},
-      location: request.path
+    RouterConf = {
+      appRouter: StaticRouter,
+      routerProps: {
+        context: {},
+        location: request.path
+      }
     }
   }
   return (
     <Provider { ...stores }>
-      <AppRouter {...routerProps}>
+      <RouterConf.appRouter {...RouterConf.routerProps}>
         <Switch>
           <Route path='/secondPage' component={ HelloPage1 }/>
           <Route path='/' component={ HelloPage }/>
         </Switch>
-      </AppRouter>
+      </RouterConf.appRouter>
     </Provider>
   )
 }
