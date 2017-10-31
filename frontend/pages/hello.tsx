@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Page } from '@seagull-js/seagull'
 import { inject, observer } from 'mobx-react'
 import Todos from '../stores/todos'
 import InputForm from '../components/input_form'
@@ -10,8 +11,9 @@ interface IProps {
 
 // the (stateful) component for the page with type checking
 @inject('todos') @observer
-export default class HelloPage extends React.Component<IProps, {}> {
-
+export default class HelloPage extends Page<IProps, {}> {
+  path = "/secondPage"
+  
   render() {
     return (
       <div>
