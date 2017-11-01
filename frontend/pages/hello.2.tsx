@@ -10,7 +10,6 @@ interface IProps {
 }
 
 // the (stateful) component for the page with type checking
-@inject('todos') @observer
 export default class HelloPage extends Page<IProps, {}> {
   
   path = "/"
