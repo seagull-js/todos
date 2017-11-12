@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Page } from '@seagull-js/seagull'
-import { inject, observer } from 'mobx-react'
 import Todos from '../stores/todos'
 import InputForm from '../components/input_form'
 import TodoItem from '../components/todo_item'
