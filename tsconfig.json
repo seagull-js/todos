@@ -11,12 +11,13 @@
     "rootDir": "./",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "react",
-    "jsxFactory": "createElement"
+    "jsx": "react"
+    // "jsxFactory": "createElement"
   },
   "include": [
-      "api/**/*",
       "frontend/**/*",
+      "backend/**/*",
+      "models/**/*",
       "test/**/*"
   ],
   "lib": [ "es5", "es6", "es7", "dom", "dom.iterable" ],

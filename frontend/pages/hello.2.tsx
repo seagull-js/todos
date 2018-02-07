@@ -10,11 +10,13 @@ interface IProps {
 
 // the (stateful) component for the page with type checking
 export default class HelloPage extends Page<IProps, {}> {
-  path = "/secondPage"
   
+  path = "/"
+
   render() {
     return (
       <div>
+        <h3>A second 'to do' list.</h3>
         <table className="table table-bordered table-hover">
           <thead>
             <tr>

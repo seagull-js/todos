@@ -1,12 +1,11 @@
 // external library imports
-import createElement from 'inferno-create-element';
-import Component from 'inferno-component';
-import { connect } from 'inferno-mobx'
+import * as React from "react"
+import { inject, observer } from 'mobx-react'
 import Todos from '../stores/todos'
 
 // external data that gets passed into this component
 export interface IProps {
-  todos: Todos
+  todos?: Todos
 }
 
 // internal 'state' data structure of this component
@@ -15,8 +14,8 @@ export interface IState {
 }
 
 // the (stateful) component for the page with type checking
-@connect(['todos'])
-export default class InputForm extends Component<IProps, IState> {
+@inject('todos') @observer
+export default class InputForm extends React.Component<IProps, IState> {
   constructor(props) {
     super(props)
     this.state = { input: '' }
@@ -25,7 +24,7 @@ export default class InputForm extends Component<IProps, IState> {
   setInputText = (event) => this.setState({ input: event.target.value })
 
   invoke = (_event) => {
-    this.props.todos.addTodo(this.state.input)
+    this.props.todos!.addTodo(this.state.input)
     this.setState({ input: '' })
   }
 
