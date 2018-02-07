@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "jsx": "react"
-    // "jsxFactory": "createElement"
   },
   "include": [
       "frontend/**/*",
