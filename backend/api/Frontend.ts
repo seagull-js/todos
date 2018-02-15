@@ -12,7 +12,7 @@ export default class Frontend extends API {
   async handle(request: Request): Promise<Response> {
     const appRouter = new Routing(true, request)
     const page = appRouter.initialMatchedPage()
-    await page.beforeRender({})
+    await page.componentDidMount()
     return this.html(render(layout({ children: appRouter.load() })))
   }
 } 
