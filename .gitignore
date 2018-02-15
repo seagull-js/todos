@@ -1,3 +1,4 @@
 node_modules
 dist
 .seagull
+.DS_Store

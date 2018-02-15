@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Page } from '@seagull-js/seagull'
+import { Page } from '@seagull/core'
 import Todos from '../stores/todos'
 import InputForm from '../components/input_form'
 import TodoItem from '../components/todo_item'
@@ -10,8 +10,14 @@ interface IProps {
 
 // the (stateful) component for the page with type checking
 export default class HelloPage extends Page<IProps, {}> {
-  path = "/secondPage"
   
+  path = "/"
+
+  componentDidMount(){
+    console.log('jaa')
+    this.props.todos.addTodo('nujaaa')
+  }
+
   render() {
     return (
       <div>

@@ -1,5 +1,5 @@
 // library imports
-import { API, Request, Response, Routing } from '@seagull-js/seagull'
+import { API, Request, Response, Routing } from '@seagull/core'
 import { renderToString as render } from 'react-dom/server';
 
 // configuration imports
@@ -10,6 +10,9 @@ export default class Frontend extends API {
   static method = 'GET'
   static path = '/*'
   async handle(request: Request): Promise<Response> {
-    return this.html(render(layout({ children: new Routing(true, request).load() })))
+    const appRouter = new Routing(true, request)
+    const page = appRouter.initialMatchedPage()
+    await page.beforeRender({})
+    return this.html(render(layout({ children: appRouter.load() })))
   }
-}
+} 
