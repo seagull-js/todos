@@ -3,6 +3,7 @@ import { Page } from '@seagull/core'
 import Todos from '../stores/todos'
 import InputForm from '../components/input_form'
 import TodoItem from '../components/todo_item'
+import PageWrapper from '../components/pagewrapper'
 
 interface IProps {
   todos: Todos
@@ -20,7 +21,7 @@ export default class HelloPage extends Page<IProps, {}> {
 
   render() {
     return (
-      <div>
+      <PageWrapper>
         <table className="table table-bordered table-hover">
           <thead>
             <tr>
@@ -36,7 +37,7 @@ export default class HelloPage extends Page<IProps, {}> {
           </tbody>
         </table>
         <InputForm />
-      </div>
+      </PageWrapper>
     )
   }
 }

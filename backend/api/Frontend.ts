@@ -1,9 +1,6 @@
 // library imports
-import { API, Request, Response, Routing } from '@seagull/core'
-import { renderToString as render } from 'react-dom/server';
-
-// configuration imports
-import layout from '../../frontend/layout'
+import { API, Request, Response, Routing, Document } from '@seagull/core'
+import { renderToString } from 'react-dom/server'
 
 // Server Side Rendering for the frontend
 export default class Frontend extends API {
@@ -15,6 +12,8 @@ export default class Frontend extends API {
     if (page && typeof page.componentDidMount === 'function') {
       await page.componentDidMount()
     }
-    return this.html(render(layout({ children: appRouter.load() })))
+    const content = renderToString(appRouter.load())
+    const html = renderToString(Document({ content }))
+    return this.html(html)
   }
-} 
+}

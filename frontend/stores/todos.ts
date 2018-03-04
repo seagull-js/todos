@@ -10,16 +10,16 @@ export default class TodoStore {
     this.addTodo('buy milk')
   }
 
-  addTodo (text: string) {
+  addTodo(text: string) {
     this.list.push(new Todo(text))
   }
 
-  deleteTodo (id: string) {
+  deleteTodo(id: string) {
     const index = this.list.findIndex(todo => todo.id === id)
     this.list.splice(index, 1)
   }
 
-  toggleTodo (id: string) {
+  toggleTodo(id: string) {
     const index = this.list.findIndex(todo => todo.id === id)
     this.list[index].checked = !this.list[index].checked
   }
